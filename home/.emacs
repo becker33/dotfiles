@@ -201,6 +201,10 @@
 (autoload 'ares-mode "ares-mode")
 (add-to-list 'auto-mode-alist '("\\.ares\\'" . ares-mode))
 
+; ASP mode
+(autoload 'pasp-mode "pasp-mode")
+(add-to-list 'auto-mode-alist '("\\.lp\\'" . pasp-mode))
+
 ;; ===========================================================================
 ;; Nice line numbering (see ~/.elisp/linums.el)
 ;; ===========================================================================
@@ -287,3 +291,9 @@
  '(rst-level-4 ((t nil)))
  '(rst-level-5 ((t nil)))
  '(rst-level-6 ((t nil))))
+
+;; Black support for Python
+;; ---------------------------------------------------------------------------
+(setq blacken-only-if-project-is-blackened t)
+(require 'blacken)
+(add-hook 'python-mode-hook 'blacken-mode)

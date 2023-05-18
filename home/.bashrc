@@ -115,7 +115,11 @@ if $interactive; then
         host_color="$green"
     fi
 
-    export PS1="${gray}(${host_color}\h${gray}):${cyan}\W${gray}\$${reset} "
+    git_branch() {
+       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    }
+
+    export PS1="${gray}(${host_color}\h${gray}):${cyan}\W${gray}[\$?]\$(git_branch)\$${reset} "
     export PROMPT_COMMAND='echo -ne "\033]0;${USER} @ ${HOSTNAME} : ${PWD}\007"'
 fi
 
@@ -151,6 +155,8 @@ alias ls="ls $LS_OPTIONS"
 alias ll="ls -lh $LS_OPTIONS"
 alias l=ll
 
+alias please=sudo
+
 if [ -e "$(which dircolors)" ]; then
     if [ "$TERM" = "xterm-256color" -a -e ~/.dir_colors.256 ]; then
         eval $(dircolors ~/.dir_colors.256)
@@ -174,7 +180,9 @@ alias rb="rm -f *~ .*~ \#* .\#*"
 alias f='finger'
 alias more='less'
 alias screen='screen -R -D'
-
+alias e='emacs -nw'
+alias push='git push origin HEAD'
+alias force_push='git push -f origin HEAD'
 
 # Init other config files as necessary.  File should be put in ~/.bash.d,
 # and can be disabled by putting a ~ anywhere in the name.
@@ -203,3 +211,14 @@ if [ "$Apple_PubSub_Socket_Render" != "" -a "$use_textmate" = "true" ]; then
         export EDITOR="mate -w"
     fi
 fi
+
+. /Users/becker33/spack/share/spack/setup-env.sh
+spack env activate devtools
+unset SPACK_ENV
+alias ssh='ssh -XY'
+
+# setup modules
+#. /Users/becker33/packages/spack/opt/spack/darwin-sierra-x86_64/clang-6.0-apple/environment-modules-3.2.10-z6qc3dyios426nyz5vdjd3pgvoecdtqu/Modules/init/bash
+
+# GPG
+export GPG_TTY=$(tty)

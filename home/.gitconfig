@@ -1,6 +1,7 @@
 [user]
-	name = Todd Gamblin
-	email = tgamblin@llnl.gov
+	name = Gregory Becker
+	email = becker33@llnl.gov
+	signingkey = 2362541F6D14ED84
 
 [merge]
 	tool = opendiff
@@ -9,7 +10,7 @@
 	ui = auto
 
 [core]
-	excludesfile = /Users/gamblin2/.gitignore_global
+	excludesfile = /Users/becker33/.gitignore_global
 
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
@@ -41,3 +42,9 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[init]
+	defaultBranch = main
+[commit]
+#	gpgsign = true
+[pull]
+	rebase = true
