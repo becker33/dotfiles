@@ -123,6 +123,15 @@ if $interactive; then
     export PROMPT_COMMAND='echo -ne "\033]0;${USER} @ ${HOSTNAME} : ${PWD}\007"'
 fi
 
+demo() {
+    export PS1_BK=$PS1
+    export PS1='$ '
+}
+
+undemo() {
+    export PS1=$PS1_BK
+}
+
 
 # bash history options
 shopt -s histappend              # append instead of overwrite (good for multiple sessions)
@@ -215,7 +224,7 @@ fi
 . /Users/becker33/spack/share/spack/setup-env.sh
 spack env activate devtools
 unset SPACK_ENV
-alias ssh='ssh -XY'
+alias ssh='ssh -XY -F ~/.ssh/myconfig'
 
 # setup modules
 #. /Users/becker33/packages/spack/opt/spack/darwin-sierra-x86_64/clang-6.0-apple/environment-modules-3.2.10-z6qc3dyios426nyz5vdjd3pgvoecdtqu/Modules/init/bash
