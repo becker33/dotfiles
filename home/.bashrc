@@ -41,6 +41,15 @@ function source_if_exists {
     fi
 }
 
+function git {
+    if [ "$1" == "commit" ]; then
+        shift
+        command git commit -s $@
+    else
+        command git $@
+    fi
+}
+
 source_if_exists /etc/lc.bashrc
 source_if_exists /etc/bashrc
 source_if_exists /usr/local/tools/dotkit/init.sh
