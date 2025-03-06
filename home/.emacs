@@ -17,6 +17,10 @@
 ; If two files have the same name, name by enclosing-folder/filename
 (toggle-uniquify-buffer-names)
 
+; If opening two files, always open side-by-side
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
+
 ; Filename completion ignores case on Mac OS X
 (set 'read-file-name-completion-ignore-case nil)
 
