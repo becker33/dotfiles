@@ -125,10 +125,10 @@ if $interactive; then
     fi
 
     git_branch() {
-       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
     }
 
-    export PS1="${gray}(${host_color}\h \$(date '+%Y-%m-%d %T')${gray}):${cyan}\W${gray}[\$?]\$(git_branch)\$${reset} "
+    export PS1="${gray}(${host_color}\h \$(date '+%Y-%m-%d %T')${gray}):${cyan}\W${gray}[\$?](\$(git_branch))\$${reset} "
     export PROMPT_COMMAND='echo -ne "\033]0;${USER} @ ${HOSTNAME} : ${PWD}\007"'
 fi
 
