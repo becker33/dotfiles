@@ -240,3 +240,6 @@ alias ssh='ssh -XY -F ~/.ssh/myconfig'
 
 # GPG
 export GPG_TTY=$(tty)
+
+# direnv
+eval "$(direnv hook bash)"
