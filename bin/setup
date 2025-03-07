@@ -111,6 +111,15 @@ case $cmd in
         echo "  into: $link_dest"
 
         for file in $(\ls -A $repo_home); do
+            if [ "$file" == "devtools" ]; then
+                if [ "$cmd" == "link" ]; then
+                    spack -d env track $repo_home/$file
+                else
+                    spack env untrack -y $file
+                fi
+                continue
+            fi
+
             dest="$link_dest/$file"
             src="$rel_repo/$file"
 

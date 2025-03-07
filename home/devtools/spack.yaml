@@ -1,0 +1,81 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - gnupg
+  - emacs
+  - 'py-black@24:'
+  - direnv
+  - py-sphinx
+  - py-sphinx-rtd-theme
+  - py-sphinxcontrib-programoutput
+  - py-sphinx-design
+  view: true
+  concretizer:
+    unify: true
+  packages:
+    flex:
+      externals:
+      - spec: flex@2.6.4+lex
+        prefix: /usr
+    gmake:
+      externals:
+      - spec: gmake@3.81
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@9.8p1
+        prefix: /usr
+      - spec: openssh@8.6p1
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@2.37.0~tcltk
+        prefix: /usr
+    gettext:
+      externals:
+      - spec: gettext@0.22.3
+        prefix: /opt/homebrew
+    curl:
+      externals:
+      - spec: curl@8.7.1+gssapi+ldap+nghttp2
+        prefix: /usr
+      - spec: curl@7.79.1+gssapi+ldap+nghttp2
+        prefix: /usr
+    python:
+      externals:
+      - spec: python@3.9.6+bz2+crypt+ctypes+dbm+lzma+pyexpat~pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.6
+        prefix: /usr
+    bison:
+      externals:
+      - spec: bison@2.3
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@3.4.0
+        prefix: /Users/becker33/spack/var/spack/environments/devtools/.spack-env/view
+    perl:
+      externals:
+      - spec: perl@5.18.4~cpanm+shared+threads
+        prefix: /usr
+      - spec: perl@5.30.3~cpanm+shared+threads
+        prefix: /usr
+    tar:
+      externals:
+      - spec: tar@1.35
+        prefix: /Users/becker33/spack/var/spack/environments/devtools/.spack-env/view
+    groff:
+      externals:
+      - spec: groff@1.19.2
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@2.8.1
+        prefix: /usr

@@ -1,2 +1,5 @@
 *~
 .*~
+
+home/devtools
+!home/devtools/spack.yaml
