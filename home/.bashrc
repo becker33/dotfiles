@@ -44,9 +44,9 @@ function source_if_exists {
 function git {
     if [ "$1" == "commit" ]; then
         shift
-        command git commit -s $@
+        command git commit -s "$@"
     else
-        command git $@
+        command git "$@"
     fi
 }
 
