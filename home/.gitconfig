@@ -1,7 +1,7 @@
 [user]
 	name = Gregory Becker
 	email = becker33@llnl.gov
-	signingkey = 2362541F6D14ED84
+	signingkey = B2851C791CD752E7
 
 [merge]
 	tool = opendiff

@@ -92,3 +92,5 @@ spack:
       require: openblas
     openblas:
       require: ['%[virtuals=c,cxx,fortran]gcc']
+    gdbm:
+      require: '@:1.24'
