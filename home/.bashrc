@@ -128,7 +128,7 @@ if $interactive; then
        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
     }
 
-    export PS1="${gray}(${host_color}\h \$(date '+%Y-%m-%d %T')${gray}):${cyan}\W${gray}[\$?](\$(git_branch))\$${reset} "
+    export PS1="${gray}(${host_color}\h \$(date '+%Y-%m-%d %T')${gray}):${cyan}\w${gray}[\$?](\$(git_branch))\n\$${reset} "
     export PROMPT_COMMAND='echo -ne "\033]0;${USER} @ ${HOSTNAME} : ${PWD}\007"'
 fi
 
@@ -201,6 +201,7 @@ alias screen='screen -R -D'
 alias e='emacs -nw'
 alias push='git push origin HEAD'
 alias force_push='git push -f origin HEAD'
+alias pull='git pull origin $(git_branch)'
 
 # Init other config files as necessary.  File should be put in ~/.bash.d,
 # and can be disabled by putting a ~ anywhere in the name.
@@ -230,7 +231,7 @@ if [ "$Apple_PubSub_Socket_Render" != "" -a "$use_textmate" = "true" ]; then
     fi
 fi
 
-. /Users/becker33/spack/share/spack/setup-env.sh
+. ~/spack/share/spack/setup-env.sh
 spack env activate devtools
 unset SPACK_ENV
 alias ssh='ssh -XY -F ~/.ssh/myconfig'

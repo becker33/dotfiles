@@ -7,12 +7,21 @@ spack:
   specs:
   - gnupg
   - emacs
-  - 'py-black@24:'
+  - py-black@25.1.0
   - direnv
   - py-sphinx
   - py-sphinx-rtd-theme
   - py-sphinxcontrib-programoutput
   - py-sphinx-design
+  - py-pandas
+  - py-tqdm
+  - py-matplotlib
+  - py-pytest-xdist
+  - graphviz
+  - py-exceptiongroup
+  - py-isort
+  - py-flake8
+  - py-mypy
   view: true
   concretizer:
     unify: true
@@ -79,3 +88,5 @@ spack:
       externals:
       - spec: diffutils@2.8.1
         prefix: /usr
+    openblas:
+      require: ['%[virtuals=c,cxx,fortran]gcc']
