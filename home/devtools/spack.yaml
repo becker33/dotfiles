@@ -88,5 +88,7 @@ spack:
       externals:
       - spec: diffutils@2.8.1
         prefix: /usr
+    blas:
+      require: openblas
     openblas:
       require: ['%[virtuals=c,cxx,fortran]gcc']
