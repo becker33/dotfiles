@@ -42,12 +42,16 @@ function source_if_exists {
 }
 
 function git {
-    if [ "$1" == "commit" ]; then
-        shift
-        command git commit -s "$@"
-    else
-        command git "$@"
-    fi
+    case "$1" in
+        "commit"|"revert"|"rebase")
+            cmd=$1
+            shift
+            command git $cmd --signoff "$@"
+            ;;
+        *)
+            command git "$@"
+            ;;
+    esac
 }
 
 source_if_exists /etc/lc.bashrc
