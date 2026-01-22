@@ -1,7 +1,7 @@
 [user]
 	name = Gregory Becker
 	email = becker33@llnl.gov
-	signingkey = B2851C791CD752E7
+	signingkey = /Users/becker33/.ssh/id_rsa.pub
 
 [merge]
 	tool = opendiff
@@ -48,3 +48,5 @@
 	gpgsign = true
 [pull]
 	rebase = true
+[gpg]
+	format = ssh
