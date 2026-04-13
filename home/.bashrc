@@ -41,12 +41,22 @@ function source_if_exists {
     fi
 }
 
+# Automatically apply --signoff to the relevant commands
 function git {
-    case "$1" in
-        "commit"|"revert"|"rebase")
-            cmd=$1
+    case $1 in
+        commit|revert)
+            local cmd=$1
             shift
             command git $cmd --signoff "$@"
+            ;;
+        rebase)
+            shift
+            # Don't add --signoff for continue/skip/abort
+            if [[ $1 == (--continue|--skip|--abort) ]]; then
+                command git rebase "$@"
+            else
+                command git rebase --signoff "$@"
+            fi
             ;;
         *)
             command git "$@"
