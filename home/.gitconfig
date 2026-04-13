@@ -1,7 +1,6 @@
 [user]
 	name = Gregory Becker
 	email = becker33@llnl.gov
-	signingkey = /Users/becker33/.ssh/id_rsa.pub
 
 [merge]
 	tool = opendiff
@@ -46,7 +45,12 @@
 	defaultBranch = main
 [commit]
 	gpgsign = true
-[pull]
-	rebase = true
 [gpg]
 	format = ssh
+	allowedSignersFile = ~/.ssh/allowed_signers.txt
+[pull]
+	rebase = true
+[tag]
+	gpgsign = true
+[gpg "ssh"]
+	defaultKeyCommand = ssh-add -L
