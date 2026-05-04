@@ -5,27 +5,26 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - gnupg
   - emacs
-  - py-black@25.1.0
   - direnv
   - py-sphinx
   - py-sphinx-rtd-theme
   - py-sphinxcontrib-programoutput
   - py-sphinx-design
-  - py-pandas
-  - py-tqdm
-  - py-matplotlib
   - py-pytest-xdist
   - graphviz
-  - py-exceptiongroup
-  - py-isort
-  - py-flake8
-  - py-mypy
   view: true
   concretizer:
     unify: true
   packages:
+    apple-clang:
+      externals:
+      - spec: apple-clang@17.0.0
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/clang
+            cxx: /usr/bin/clang++
     flex:
       externals:
       - spec: flex@2.6.4+lex

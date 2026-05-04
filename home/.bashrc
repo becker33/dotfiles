@@ -51,12 +51,14 @@ function git {
             ;;
         rebase)
             shift
-            # Don't add --signoff for continue/skip/abort
-            if [[ $1 == (--continue|--skip|--abort) ]]; then
-                command git rebase "$@"
-            else
-                command git rebase --signoff "$@"
-            fi
+            case $1 in
+		"--continue"|"--skip"|"--abort")
+                    # Don't add --signoff for continue/skip/abort
+                    command git rebase "$@"
+                    ;;
+                *)
+                    command git rebase --signoff "$@"
+            esac
             ;;
         *)
             command git "$@"
